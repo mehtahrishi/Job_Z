@@ -50,11 +50,5 @@ You should see the following messages:
 3.Start the frontend development server:
 npm run dev
 
-Usage
+## Usage
 Once both the backend and frontend servers are running, you can access the application on your local machine. The default development server is typically available at http://localhost:3000.
-
-Contributing
-Contributions are welcome! If you would like to contribute to this project, please fork the repository and submit a pull request.   
-
-License
-This project is licensed under the MIT License. See the LICENSE file for more details.  (If you don't have a LICENSE file yet, create one in the root of your project.)
