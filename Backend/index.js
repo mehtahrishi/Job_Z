@@ -7,7 +7,6 @@ import userRoute from "./routes/user.route.js";
 import companyRoute from "./routes/company.route.js";
 import jobRoute from "./routes/job.route.js";
 import applicationRoute from "./routes/application.route.js";
-import path from "path"
 
 dotenv.config({});
 const app = express();
@@ -40,16 +39,3 @@ app.listen(PORT, () => {
 });
 
 
-//Code for Deployment
-if(process.env.NODE_ENV ==="production"){
-  const dirpath = path.resolve();
-  app.use(express.static('./Frontend/dist'));
- app.get('*',(req,res)=>{
-  res.sendFile(path.resolve(dirpath,'./Frontend/dist','index.html'));
- });
-}
-
-app.listen(PORT,() => {
-  connectDB();
-  console.log(`Server is running on port ${PORT}`);
-});
