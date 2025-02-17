@@ -28,6 +28,7 @@ const categories = [
   "Bank Clerk",
   "Assistant",
   "Video Editor",
+  "Cloud Developer",
   "Finance Executive",
 ];
 
