@@ -27,6 +27,7 @@ const categories = [
   "Graphics Engineer",
   "Graphics Designer",
   "Video Editor",
+  "Cloud Developer",
   "Finance Executive",
 ];
 
