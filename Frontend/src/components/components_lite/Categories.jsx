@@ -11,8 +11,8 @@ import { useNavigate } from "react-router-dom";
 import { setSearchedQuery } from "@/redux/jobSlice";
 
 const categories = [
-  "Frontend Developer",
-  "Backend Developer",
+
+  "Cloud Developer",
   "Full Stack Developer",
   "ML Ops Engineer",
   "MERN Developer",
@@ -25,7 +25,8 @@ const categories = [
   "Product Manager",
   "UX/UI Designer",
   "Graphics Engineer",
-  "Graphics Designer",
+  "Bank Clerk",
+  "Assistant",
   "Video Editor",
   "Finance Executive",
 ];
