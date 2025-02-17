@@ -15,14 +15,13 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-// Backend: index.js
+
 const corsOptions = {
-  origin: ["https://job-z-frontend.vercel.app"],  // Your frontend deployed URL
+  origin: ["http://localhost:5173"],
   credentials: true,
 };
 
 app.use(cors(corsOptions));
-
 
 const PORT = process.env.PORT || 5001;
 

@@ -1,6 +1,5 @@
-// src/hooks/useGetAllJobs.jsx
 import { setAllJobs } from "@/redux/jobSlice";
-import { JOB_API_ENDPOINT } from "@/utils/data";  // This is where the endpoint is used
+import { JOB_API_ENDPOINT } from "@/utils/data";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -38,7 +37,7 @@ const useGetAllJobs = () => {
     };
 
     fetchAllJobs();
-  }, [dispatch, searchedQuery]);  // Also added searchedQuery as dependency
+  }, [dispatch]);
 
   return { loading, error };
 };
