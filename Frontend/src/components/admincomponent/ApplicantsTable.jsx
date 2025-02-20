@@ -39,8 +39,8 @@ const ApplicantsTable = () => {
     <div>
       <Table>
         <TableCaption>A list of your recently applied users</TableCaption>
-        <TableHeader className="border-black border-y-2">
-          <TableRow>
+        <TableHeader  className="border-black border-y-2">
+          <TableRow >
             <TableHead className="font-bold text-black">Full Name</TableHead>
             <TableHead className="font-bold text-black">Bio</TableHead>
             <TableHead className="font-bold text-black">Skills</TableHead>
@@ -53,7 +53,7 @@ const ApplicantsTable = () => {
         </TableHeader>
         <TableBody>
           {applicants?.applications?.map((item) => (
-            <TableRow key={item._id} className="hover:bg-neutral-200">
+            <TableRow key={item._id} className="hover:bg-neutral-200 border-b-transparent">
               
               {/* Full Name */}
               <TableCell>{item?.applicant?.fullname}</TableCell>
