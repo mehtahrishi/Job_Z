@@ -207,7 +207,7 @@ const PostJob = () => {
             ) : (
               <Button
                 type="submit"
-                className="w-1/4 px-4 py-2 text-sm text-white bg-black rounded-md hover:bg-[#fa4f09]" 
+                className="w-full px-4 py-2 text-sm text-white bg-black rounded-md hover:bg-[#fa4f09]" 
               >
                 Post Job
               </Button>
