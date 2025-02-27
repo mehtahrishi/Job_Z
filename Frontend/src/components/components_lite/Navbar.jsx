@@ -38,7 +38,7 @@ const Navbar = () => {
 
   return (
     <div className="bg-transparent">
-<div className="flex items-center justify-between mx-auto max-w-7xl h-24">
+      <div className="flex items-center justify-between mx-auto max-w-7xl h-24">
         
         {/* Logo and Title */}
         <div className="flex items-center">
@@ -83,6 +83,16 @@ const Navbar = () => {
                 </li>
               </>
             )}
+            <li>
+              <Link to={"/Contact"} className="font-extrabold  hover:text-[#fa4f09] transition-colors duration-200">
+                Contact
+              </Link>
+            </li>
+            <li>
+              <Link to={"/About"} className="font-extrabold hover:text-[#6B3AC2] transition-colors duration-200">
+                About
+              </Link>
+            </li>
           </ul>
 
           {!user ? (
