@@ -48,7 +48,7 @@ const CompanyCreate = () => {
     <Input
       type="text"
       placeholder="Company Name"
-      className="focus-visible:ring-offset-0 focus-visible:ring-0 my-1 hover:shadow-[#fa4f09] border-black"
+      className="focus-visible:ring-offset-0 focus-visible:ring-0 my-1 hover:shadow-[#6b3ac2] border-black"
       onChange={(e) => setCompanyName(e.target.value)}
     />
 

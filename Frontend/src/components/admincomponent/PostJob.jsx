@@ -94,7 +94,7 @@ const PostJob = () => {
                 name="title"
                 value={input.title}
                 placeholder="Enter job role"
-                className="focus-visible:ring-offset-0 focus-visible:ring-0 my-1 hover:shadow-[#fa4f09] border-black"
+                className="focus-visible:ring-offset-0 focus-visible:ring-0 my-1 hover:shadow-[#6b3ac2] border-black"
                 onChange={changeEventHandler}
               />
             </div>
@@ -104,7 +104,7 @@ const PostJob = () => {
                 name="description"
                 value={input.description}
                 placeholder="Enter job description"
-                className="focus-visible:ring-offset-0 focus-visible:ring-0 my-1 hover:shadow-[#fa4f09] border-black"
+                className="focus-visible:ring-offset-0 focus-visible:ring-0 my-1 hover:shadow-[#6b3ac2] border-black"
                 onChange={changeEventHandler}
               />
             </div>
@@ -115,7 +115,7 @@ const PostJob = () => {
                 name="location"
                 value={input.location}
                 placeholder="Enter job location"
-                className="focus-visible:ring-offset-0 focus-visible:ring-0 my-1 hover:shadow-[#fa4f09] border-black"
+                className="focus-visible:ring-offset-0 focus-visible:ring-0 my-1 hover:shadow-[#6b3ac2] border-black"
                 onChange={changeEventHandler}
               />
             </div>
@@ -126,7 +126,7 @@ const PostJob = () => {
                 name="salary"
                 value={input.salary}
                 placeholder="Enter job salary"
-                className="focus-visible:ring-offset-0 focus-visible:ring-0 my-1 hover:shadow-[#fa4f09] border-black"
+                className="focus-visible:ring-offset-0 focus-visible:ring-0 my-1 hover:shadow-[#6b3ac2] border-black"
                 onChange={changeEventHandler}
               />
             </div>
@@ -137,7 +137,7 @@ const PostJob = () => {
                 name="position"
                 value={input.position}
                 placeholder="Enter job position"
-                className="focus-visible:ring-offset-0 focus-visible:ring-0 my-1 hover:shadow-[#fa4f09] border-black"
+                className="focus-visible:ring-offset-0 focus-visible:ring-0 my-1 hover:shadow-[#6b3ac2] border-black"
                 onChange={changeEventHandler}
               />
             </div>
@@ -148,7 +148,7 @@ const PostJob = () => {
                 name="requirements"
                 value={input.requirements}
                 placeholder="Enter job requirements"
-                className="focus-visible:ring-offset-0 focus-visible:ring-0 my-1 hover:shadow-[#fa4f09] border-black"
+                className="focus-visible:ring-offset-0 focus-visible:ring-0 my-1 hover:shadow-[#6b3ac2] border-black"
                 onChange={changeEventHandler}
               />
             </div>
@@ -160,7 +160,7 @@ const PostJob = () => {
                 name="experience"
                 value={input.experience}
                 placeholder="Enter job experience"
-                className="focus-visible:ring-offset-0 focus-visible:ring-0 my-1 hover:shadow-[#fa4f09] border-black"
+                className="focus-visible:ring-offset-0 focus-visible:ring-0 my-1 hover:shadow-[#6b3ac2] border-black"
                 onChange={changeEventHandler}
               />
             </div>
@@ -171,7 +171,7 @@ const PostJob = () => {
                 name="jobType"
                 value={input.jobType}
                 placeholder="Enter job type"
-                className="focus-visible:ring-offset-0 focus-visible:ring-0 my-1 hover:shadow-[#fa4f09] border-black"
+                className="focus-visible:ring-offset-0 focus-visible:ring-0 my-1 hover:shadow-[#6b3ac2] border-black"
                 onChange={changeEventHandler}
               />
             </div>
@@ -200,14 +200,14 @@ const PostJob = () => {
           </div>
           <div className="flex items-center justify-center mt-5">
             {loading ? (
-              <Button className="w-1/6 px-4 py-2 text-sm text-white bg-[#fa4f09] rounded-md ">
+              <Button className="w-1/6 px-4 py-2 text-sm text-white bg-black rounded-md ">
                 {" "}
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Please wait{" "}
               </Button>
             ) : (
               <Button
                 type="submit"
-                className="w-full px-4 py-2 text-sm text-white bg-black rounded-md hover:bg-[#fa4f09]" 
+                className="w-full px-4 py-2 text-sm text-white bg-black hover:bg-[#6b3ac2] rounded-md hover:shadow-[#6b3ac2]" 
               >
                 Post Job
               </Button>

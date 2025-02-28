@@ -189,7 +189,7 @@ const EditProfileModal = ({ open, setOpen }) => {
                 <Loader2 className="mr-2 h-4 w-full animate-spin" /> Please wait
               </Button>
             ) : (
-              <Button type="submit" className="w-full my-4 hover:bg-[#6b3ac2]">
+              <Button type="submit" className="w-full my-4 hover:bg-[#fa4f09]">
                 Save Changes
               </Button>
             )}

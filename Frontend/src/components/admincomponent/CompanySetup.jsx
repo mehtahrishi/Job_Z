@@ -113,7 +113,7 @@ const CompanySetup = () => {
                 name="name"
                 value={input.name}
                 onChange={changeEventHandler}
-                className="focus-visible:ring-offset-0 focus-visible:ring-0 my-1 hover:shadow-[#fa4f09] border-black"
+                className="focus-visible:ring-offset-0 focus-visible:ring-0 my-1 hover:shadow-[#6b3ac2] border-black"
               />
             </div>
             <div>
@@ -123,7 +123,7 @@ const CompanySetup = () => {
                 name="description"
                 value={input.description}
                 onChange={changeEventHandler}
-                className="focus-visible:ring-offset-0 focus-visible:ring-0 my-1 hover:shadow-[#fa4f09] border-black"
+                className="focus-visible:ring-offset-0 focus-visible:ring-0 my-1 hover:shadow-[#6b3ac2] border-black"
               />
             </div>
             <div>
@@ -133,7 +133,7 @@ const CompanySetup = () => {
                 name="website"
                 value={input.website}
                 onChange={changeEventHandler}
-                className="focus-visible:ring-offset-0 focus-visible:ring-0 my-1 hover:shadow-[#fa4f09] border-black"
+                className="focus-visible:ring-offset-0 focus-visible:ring-0 my-1 hover:shadow-[#6b3ac2] border-black"
               />
             </div>
             <div>
@@ -143,7 +143,7 @@ const CompanySetup = () => {
                 name="location"
                 value={input.location}
                 onChange={changeEventHandler}
-                className="focus-visible:ring-offset-0 focus-visible:ring-0 my-1 hover:shadow-[#fa4f09] border-black"
+                className="focus-visible:ring-offset-0 focus-visible:ring-0 my-1 hover:shadow-[#6b3ac2] border-black"
               />
             </div>
             <div >
@@ -152,7 +152,7 @@ const CompanySetup = () => {
                 type="file"
                 accept="image/*"
                 onChange={changeFileHandler}
-                className="focus-visible:ring-offset-0 focus-visible:ring-0 my-1 hover:shadow-[#fa4f09] border-black cursor-pointer"
+                className="focus-visible:ring-offset-0 focus-visible:ring-0 my-1 hover:shadow-[#6b3ac2] border-black cursor-pointer"
               />
             </div>
           </div>
