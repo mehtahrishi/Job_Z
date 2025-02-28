@@ -140,7 +140,7 @@ export const login = async (req, res) => {
         sameSite: "Strict",
       })
       .json({
-        message: `Welcome Back 😃 ${user.fullname}`,
+        message: `Welcome Back ${user.fullname} 😃`,
         user: sanitizedUser,
         success: true,
       });
@@ -208,7 +208,7 @@ export const updateProfile = async (req, res) => {
     };
 
     return res.status(200).json({
-      message: " 😊 Profile Updated Successfully ",
+      message: "Profile Updated Successfully 😊",
       user: updatedUser,
       success: true,
     });
