@@ -68,7 +68,7 @@ export const register = async (req, res) => {
     await newUser.save();
 
     return res.status(201).json({
-      message: `Account Created Successfully For ${fullname}`,
+      message: `Account Created Successfully For ${fullname} 😊`,
       success: true,
     });
   } catch (error) {
@@ -208,7 +208,7 @@ export const updateProfile = async (req, res) => {
     };
 
     return res.status(200).json({
-      message: "Profile Updated Successfully",
+      message: " 😊 Profile Updated Successfully ",
       user: updatedUser,
       success: true,
     });

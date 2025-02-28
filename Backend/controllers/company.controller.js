@@ -24,7 +24,7 @@ export const registerCompany = async (req, res) => {
       userId: req.id,
     });
     return res.status(201).json({
-      message: "Company Registered Successfully.",
+      message: "Company Registered Successfully 🫡",
       company,
       success: true,
     });
@@ -81,7 +81,7 @@ export const updateCompany = async (req, res) => {
     if (!company) {
       return res.status(404).json({ message: "Company Not Found" });
     }
-    return res.status(200).json({ message: "Company Updated" });
+    return res.status(200).json({ message: "Company Updated 🫡" });
   } catch (error) {
     console.error(error);
   }

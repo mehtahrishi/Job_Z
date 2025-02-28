@@ -37,7 +37,7 @@ export const applyJob = async (req, res) => {
 
     return res
       .status(201)
-      .json({ message: "Application Submitted", success: true });
+      .json({ message: "Application Submitted 😊", success: true });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Server Error", success: false });
@@ -112,7 +112,7 @@ export const updateStatus = async (req, res) => {
 
     return res
       .status(200)
-      .json({ message: "Application Status Updated", success: true });
+      .json({ message: "Application Status Updated 🫡", success: true });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Server Error", success: false });

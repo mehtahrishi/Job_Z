@@ -45,7 +45,7 @@ export const postJob = async (req, res) => {
     });
     
     res.status(201).json({
-      message: "Job Posted Successfully.",
+      message: "Job Posted Successfully 🫡",
       job,
       status: true,
     });
