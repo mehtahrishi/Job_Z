@@ -29,6 +29,11 @@ const Description = () => {
   const [isApplied, setIsApplied] = useState(isIntiallyApplied);
 
   const applyJobHandler = async () => {
+    if (!user) {
+      toast.error("Please Log In To Apply For This Job.");
+      return;
+    }
+
     try {
       const res = await axios.get(
         `${APPLICATION_API_ENDPOINT}/apply/${jobId}`,
@@ -41,14 +46,22 @@ const Description = () => {
           applications: [...singleJob.applications, { applicant: user?._id }],
         };
         dispatch(setSingleJob(updateSingleJob));
-        console.log(res.data);
         toast.success(res.data.message);
       }
     } catch (error) {
       console.log(error.message);
-      toast.error(error.response.data.message);
+      setIsApplied(false); // Reset isApplied on error
+      toast.error(error.response?.data?.message || "An error occurred.");
     }
   };
+
+  useEffect(() => {
+    setIsApplied(isIntiallyApplied);
+  }, [isIntiallyApplied]);
+
+  useEffect(() => {
+    setIsApplied(false);
+  }, [user]);
 
   useEffect(() => {
     const fetchSingleJobs = async () => {
@@ -86,9 +99,8 @@ const Description = () => {
   }
 
   return (
-   
     <div className="min-h-screen bg-[url('/bg.jpg')] bg-cover bg-center">
-       <Navbar />
+      <Navbar />
       <div className="max-w-7xl mx-auto my-10 ">
         <div className="flex items-center justify-between">
           <div>
@@ -146,27 +158,26 @@ const Description = () => {
             </span>
           </h1>
           <h1 className="font-bold my-1 ">
-  Experience:{" "}
-  <span className=" pl-4 font-normal text-gray-800">
-    {singleJob?.experience} Year
-  </span>
-</h1>
-<h1 className="font-bold my-1 flex items-center gap-2">
-  Requirements:
-  <Popover>
-  <PopoverTrigger>
-    <ChevronDown className="w-5 h-5 cursor-pointer hover:text-[#6b3ac2]" />
-  </PopoverTrigger>
-  <PopoverContent align="end" side="right" className="w-80 bg-black rounded-lg text-white border-gray-300 font-medium p-3 border shadow-md">
-    <ul className="list-disc pl-4">
-      {singleJob?.requirements?.map((req, index) => (
-        <li key={index}>{req.trim()}</li>
-      ))}
-    </ul>
-  </PopoverContent>
-</Popover>
-
-</h1>
+            Experience:{" "}
+            <span className=" pl-4 font-normal text-gray-800">
+              {singleJob?.experience} Year
+            </span>
+          </h1>
+          <h1 className="font-bold my-1 flex items-center gap-2">
+            Requirements:
+            <Popover>
+              <PopoverTrigger>
+                <ChevronDown className="w-5 h-5 cursor-pointer hover:text-[#6b3ac2]" />
+              </PopoverTrigger>
+              <PopoverContent align="end" side="right" className="w-80 bg-black rounded-lg text-white border-gray-300 font-medium p-3 border shadow-md">
+                <ul className="list-disc pl-4">
+                  {singleJob?.requirements?.map((req, index) => (
+                    <li key={index}>{req.trim()}</li>
+                  ))}
+                </ul>
+              </PopoverContent>
+            </Popover>
+          </h1>
 
           <h1 className="font-bold my-1 ">
             Total Applicants:{" "}
@@ -188,7 +199,7 @@ const Description = () => {
           </h1>
         </div>
       </div>
-      < Footer/>
+      <Footer />
     </div>
   );
 };
