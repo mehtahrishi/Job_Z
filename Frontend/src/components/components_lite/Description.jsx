@@ -106,7 +106,7 @@ const Description = () => {
           <div>
             <h1 className="font-bold text-xl ">{singleJob?.title}</h1>
             <div className=" flex gap-2 items-center mt-4 ">
-              <Badge className={" text-blue-600 font-bold border-black"} variant={"ghost"}>
+              <Badge className={" text-[#6B3AC2] font-bold border-black"} variant={"ghost"}>
                 {singleJob?.position} Open Positions
               </Badge>
               <Badge className={" text-[#FA4F09] font-bold border-black"} variant={"ghost"}>

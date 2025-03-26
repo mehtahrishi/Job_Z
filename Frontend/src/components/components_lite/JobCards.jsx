@@ -34,7 +34,7 @@ const JobCards = ({job}) => {
           {job.position} Open Positions
         </Badge>
         <Badge className={" text-[#FA4F09] font-bold border-black "} variant={"ghost"}>
-          {job.salary}LPA
+          {job.salary} LPA
         </Badge>
         <Badge className={" text-[#6B3AC2]  font-bold border-black"} variant={"ghost"}>
           {job.location}

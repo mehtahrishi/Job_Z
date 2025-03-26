@@ -10,7 +10,7 @@ import {
 } from "../ui/table";
 import { Avatar, AvatarImage } from "../ui/avatar";
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
-import { ChevronDown, Edit2, Eye, MoreHorizontal, Trash } from "lucide-react";
+import { ChevronDown, Eye, MoreHorizontal, Trash } from "lucide-react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -53,14 +53,11 @@ const AdminJobsTable = () => {
         withCredentials: true,
       });
       if (response.data.success) {
-        // Optionally, you can show a success message
         console.log("Job deleted successfully");
-        // Refresh the jobs list or remove the deleted job from the state
         setFilterJobs((prev) => prev.filter(job => job._id !== jobId));
       }
     } catch (error) {
       console.error("Error deleting job:", error);
-      // Optionally, show an error message
     }
   };
 
@@ -75,7 +72,7 @@ const AdminJobsTable = () => {
             <TableHead className="font-bold text-black">Role</TableHead>
             <TableHead className="font-bold text-black">Description</TableHead>
             <TableHead className="font-bold text-black">Location</TableHead>
-            <TableHead className="font-bold text-black">Salary</TableHead>
+            <TableHead className="font-bold text-black">LPA</TableHead>
             <TableHead className="font-bold text-black">Job Type</TableHead>
             <TableHead className="font-bold text-black">Date Posted</TableHead>
             <TableHead className="font-bold text-black text-right">Action</TableHead>
@@ -109,7 +106,16 @@ const AdminJobsTable = () => {
                   </Popover>
                 </TableCell>
                 <TableCell>{job.location}</TableCell>
-                <TableCell>{job.salary}</TableCell>
+                <TableCell>
+                  <Popover>
+                    <PopoverTrigger>
+                      <ChevronDown className="cursor-pointer text-black hover:text-[#6b3ac2]" />
+                    </PopoverTrigger>
+                    <PopoverContent className="w-28 text-white font-medium bg-black p-3 border shadow-md text-center">
+                      {job.salary * 100000}
+                    </PopoverContent>
+                  </Popover>
+                </TableCell>
                 <TableCell>{job.jobType}</TableCell>
                 <TableCell>{job.createdAt.split("T")[0]}</TableCell>
                 <TableCell className="text-right cursor-pointer">

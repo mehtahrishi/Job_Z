@@ -125,7 +125,7 @@ const PostJob = () => {
                 type="number"
                 name="salary"
                 value={input.salary}
-                placeholder="Enter job salary"
+                placeholder="Enter job salary in lpa"
                 className="focus-visible:ring-offset-0 focus-visible:ring-0 my-1 hover:shadow-[#6b3ac2] border-black"
                 onChange={changeEventHandler}
               />
