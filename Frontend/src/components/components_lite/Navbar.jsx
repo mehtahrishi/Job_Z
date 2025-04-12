@@ -84,13 +84,13 @@ const Navbar = () => {
               </>
             )}
             <li>
-              <Link to={"/Contact"} className="font-extrabold  hover:text-[#fa4f09] transition-colors duration-200">
-                Contact
+              <Link to={"/About"} className="font-extrabold  hover:text-[#fa4f09] transition-colors duration-200">
+                About
               </Link>
             </li>
             <li>
-              <Link to={"/About"} className="font-extrabold hover:text-[#6B3AC2] transition-colors duration-200">
-                About
+              <Link to={"/Contact"} className="font-extrabold hover:text-[#6B3AC2] transition-colors duration-200">
+               Contact
               </Link>
             </li>
           </ul>

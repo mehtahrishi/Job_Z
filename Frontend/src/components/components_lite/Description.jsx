@@ -50,7 +50,7 @@ const Description = () => {
       }
     } catch (error) {
       console.log(error.message);
-      setIsApplied(false); // Reset isApplied on error
+      setIsApplied(false);
       toast.error(error.response?.data?.message || "An error occurred.");
     }
   };
@@ -92,7 +92,13 @@ const Description = () => {
 
     fetchSingleJobs();
   }, [jobId, dispatch, user?._id]);
-  console.log("single jobs", singleJob);
+
+  const getMonthlySalary = (lpa) => {
+    const monthly = (parseFloat(lpa) * 100000) / 12;
+    return `₹${monthly.toLocaleString("en-IN", {
+      maximumFractionDigits: 0,
+    })}`;
+  };
 
   if (!singleJob) {
     return <div>Loading...</div>;
@@ -110,8 +116,9 @@ const Description = () => {
                 {singleJob?.position} Open Positions
               </Badge>
               <Badge className={" text-[#FA4F09] font-bold border-black"} variant={"ghost"}>
-                {singleJob?.salary}LPA
+                {singleJob?.salary} LPA
               </Badge>
+              
               <Badge className={" text-[#6B3AC2]  font-bold border-black"} variant={"ghost"}>
                 {singleJob?.location}
               </Badge>
@@ -139,26 +146,31 @@ const Description = () => {
         </h1>
         <div className="my-4">
           <h1 className="font-bold my-1 ">
-            Positions Open:{" "}
+            Positions Open:
             <span className=" pl-4 font-normal text-gray-800">
               {singleJob?.position} Open Positions
             </span>
           </h1>
           <h1 className="font-bold my-1 ">
-            Location:{" "}
+            Location:
             <span className=" pl-4 font-normal text-gray-800">
-              {" "}
               {singleJob?.location}
             </span>
           </h1>
           <h1 className="font-bold my-1 ">
-            Salary:{" "}
+            Annual Salary:
             <span className=" pl-4 font-normal text-gray-800">
               {singleJob?.salary} LPA
             </span>
           </h1>
           <h1 className="font-bold my-1 ">
-            Experience:{" "}
+            Monthly Salary:
+            <span className=" pl-4 font-normal text-gray-800">
+              {getMonthlySalary(singleJob?.salary)}
+            </span>
+          </h1>
+          <h1 className="font-bold my-1 ">
+            Experience:
             <span className=" pl-4 font-normal text-gray-800">
               {singleJob?.experience} Year
             </span>
@@ -178,9 +190,8 @@ const Description = () => {
               </PopoverContent>
             </Popover>
           </h1>
-
           <h1 className="font-bold my-1 ">
-            Total Applicants:{" "}
+            Total Applicants:
             <span className=" pl-4 font-normal text-gray-800">
               {singleJob?.applications?.length}
             </span>

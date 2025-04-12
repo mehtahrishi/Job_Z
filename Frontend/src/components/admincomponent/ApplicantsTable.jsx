@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Table,
   TableBody,
@@ -19,6 +19,7 @@ const shortlistingStatus = ["Accepted", "Rejected"];
 
 const ApplicantsTable = () => {
   const { applicants } = useSelector((store) => store.application);
+  const [selectedStatuses, setSelectedStatuses] = useState({});
 
   const statusHandler = async (status, id) => {
     try {
@@ -28,6 +29,11 @@ const ApplicantsTable = () => {
         { status }
       );
       if (res.data.success) {
+        // Update the selected status for this applicant
+        setSelectedStatuses((prev) => ({
+          ...prev,
+          [id]: status,
+        }));
         toast.success(res.data.message);
       }
     } catch (error) {
@@ -39,8 +45,8 @@ const ApplicantsTable = () => {
     <div>
       <Table>
         <TableCaption>A list of your recently applied users</TableCaption>
-        <TableHeader  className="border-black border-y-2">
-          <TableRow >
+        <TableHeader className="border-black border-y-2">
+          <TableRow>
             <TableHead className="font-bold text-black">Full Name</TableHead>
             <TableHead className="font-bold text-black">Bio</TableHead>
             <TableHead className="font-bold text-black">Skills</TableHead>
@@ -54,7 +60,7 @@ const ApplicantsTable = () => {
         <TableBody>
           {applicants?.applications?.map((item) => (
             <TableRow key={item._id} className="hover:bg-neutral-200 border-b-transparent">
-              
+
               {/* Full Name */}
               <TableCell>{item?.applicant?.fullname}</TableCell>
 
@@ -62,7 +68,7 @@ const ApplicantsTable = () => {
               <TableCell>
                 <Popover>
                   <PopoverTrigger className="cursor-pointer">
-                    <Info className="w-5 h-5 text-black  hover:text-[#6b3ac2]" />
+                    <Info className="w-5 h-5 text-black hover:text-[#6b3ac2]" />
                   </PopoverTrigger>
                   <PopoverContent className="w-48 bg-black border border-black p-2">
                     <p className="text-sm font-medium text-white">
@@ -115,19 +121,36 @@ const ApplicantsTable = () => {
               <TableCell className="float-right cursor-pointer">
                 <Popover>
                   <PopoverTrigger>
-                    <MoreHorizontal />
+                      <MoreHorizontal  className="w-5 h-5 text-black hover:text-[#6b3ac2]" />
                   </PopoverTrigger>
                   <PopoverContent className="w-32 bg-black text-white p-2">
-                    {shortlistingStatus.map((status, index) => (
-                      <div
-                        key={index}
-                        onClick={() => statusHandler(status, item?._id)}
-                        className="flex items-center my-2 cursor-pointer"
-                      >
-                        <input type="radio" name={`shortlistingStatus-${item?._id}`} value={status} className="mr-2" />
-                        {status}
-                      </div>
-                    ))}
+                    {shortlistingStatus.map((status, index) => {
+                      const isSelected = selectedStatuses[item?._id] === status;
+                      const colorClass =
+                        isSelected && status === "Rejected"
+                          ? "accent-red-500"
+                          : isSelected && status === "Accepted"
+                          ? "accent-blue-500"
+                          : "accent-white";
+
+                      return (
+                        <div
+                          key={index}
+                          onClick={() => statusHandler(status, item?._id)}
+                          className="flex items-center my-2 cursor-pointer"
+                        >
+                          <input
+                            type="radio"
+                            name={`shortlistingStatus-${item?._id}`}
+                            value={status}
+                            checked={isSelected}
+                            readOnly
+                            className={`mr-2 ${colorClass}`}
+                          />
+                          {status}
+                        </div>
+                      );
+                    })}
                   </PopoverContent>
                 </Popover>
               </TableCell>

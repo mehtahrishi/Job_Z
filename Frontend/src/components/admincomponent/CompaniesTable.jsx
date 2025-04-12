@@ -114,7 +114,7 @@ const CompaniesTable = () => {
                 <TableCell className="text-right cursor-pointer">
                   <Popover>
                     <PopoverTrigger>
-                      <MoreHorizontal />
+                      <MoreHorizontal  className="w-5 h-5 text-black hover:text-[#6b3ac2]" />
                     </PopoverTrigger>
                     <PopoverContent className="w-25 text-white font-semibold bg-black">
                       <div

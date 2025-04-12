@@ -4,6 +4,7 @@ import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 import { Button } from "../ui/button";
 import { useSelector } from "react-redux";
+
 import store from "@/redux/store";
 import {
   Select,
@@ -120,7 +121,7 @@ const PostJob = () => {
               />
             </div>
             <div>
-              <Label>Salary</Label>
+              <Label>Annual Salary</Label>
               <Input
                 type="number"
                 name="salary"
@@ -131,7 +132,7 @@ const PostJob = () => {
               />
             </div>
             <div>
-              <Label>Position</Label>
+              <Label>Open Positions</Label>
               <Input
                 type="number"
                 name="position"
@@ -142,7 +143,7 @@ const PostJob = () => {
               />
             </div>
             <div>
-              <Label>Requirements</Label>
+              <Label>Skills Required</Label>
               <Input
                 type="text"
                 name="requirements"
@@ -199,20 +200,24 @@ const PostJob = () => {
             </div>
           </div>
           <div className="flex items-center justify-center mt-5">
-            {loading ? (
-              <Button className="w-1/6 px-4 py-2 text-sm text-white bg-black rounded-md ">
-                {" "}
-                <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Please wait{" "}
-              </Button>
-            ) : (
-              <Button
-                type="submit"
-                className="w-full px-4 py-2 text-sm text-white bg-black hover:bg-[#6b3ac2] rounded-md hover:shadow-[#6b3ac2]" 
-              >
-                Post Job
-              </Button>
-            )}
-          </div>
+          <Button
+  type="submit"
+  disabled={loading}
+  className={`w-full px-4 py-2 text-sm text-white rounded-md transition bg-black ${
+    loading ? "cursor-not-allowed opacity-75" : "hover:bg-[#6b3ac2] hover:shadow-[#6b3ac2]"
+  }`}
+>
+  {loading ? (
+    <>
+      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+      Please wait
+    </>
+  ) : (
+    "Post Job"
+  )}
+</Button>
+
+</div>
           {companies.length === 0 && (
             <p className="text-sm font-bold my-3 text-center text-red-600">
               *Please register a company to post jobs.*
