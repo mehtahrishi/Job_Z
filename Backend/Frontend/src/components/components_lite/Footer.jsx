@@ -15,7 +15,7 @@ const Footer = () => {
       >
         <p>©2024 - 2025 Job - Z. All Rights Reserved.</p>
         <p>
-          Powered by <a href="https://github.com/mehtahrishi">Hrishi Mehta</a>
+          Powered by <a href="https://github.com/mehtahrishi">Hrishi Mehta with love. 🗿</a>
         </p>
        
       </div>
